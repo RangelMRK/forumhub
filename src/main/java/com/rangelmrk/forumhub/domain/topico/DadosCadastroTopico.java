@@ -1,8 +1,8 @@
 package com.rangelmrk.forumhub.domain.topico;
 
-import com.rangelmrk.forumhub.domain.curso.Curso;
-import com.rangelmrk.forumhub.domain.usuario.Usuario;
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 public record DadosCadastroTopico(
@@ -13,10 +13,10 @@ public record DadosCadastroTopico(
         @NotBlank(message = "Conteúdo é obrigatório")
         String mensagem,
 
-        @NotBlank(message = "Usuário é obrigatório")
-        Usuario autor,
+        @NotNull
+        Long autorId,
 
-        @NotBlank(message = "Curso é obrigatório")
-        Curso curso
+        @NotNull
+        Long cursoId
 ) {
 }

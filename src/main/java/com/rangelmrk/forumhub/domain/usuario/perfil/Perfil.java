@@ -1,15 +1,17 @@
 package com.rangelmrk.forumhub.domain.usuario.perfil;
 
+import com.rangelmrk.forumhub.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity(name = "Perfil")
 @Table(name = "perfil")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -19,4 +21,7 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @ManyToMany(mappedBy = "perfis")
+    private Set<Usuario> usuarios = new HashSet<>();
+
 }

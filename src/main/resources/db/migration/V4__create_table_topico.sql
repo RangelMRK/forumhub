@@ -3,7 +3,7 @@ CREATE TABLE topico (
     titulo VARCHAR(255) NOT NULL,
     mensagem TEXT NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(50) NOT NULL,
+    status TINYINT NOT NULL,
     autor_id BIGINT NOT NULL,
     curso_id BIGINT NOT NULL,
     FOREIGN KEY (autor_id) REFERENCES usuario(id),
